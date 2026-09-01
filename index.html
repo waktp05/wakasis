@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidentialité Wakasis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Palette reprise de src/index.css : l'application et sa politique de
+     confidentialité doivent se reconnaître au premier coup d'oeil.
+     Page volontairement sombre, comme l'application. */
+  :root {
+    --bg: #12130f;
+    --surface: #1a1c16;
+    --border: #2d3126;
+    --border-soft: #24271f;
+    --text: #e9eae3;
+    --text-muted: #9aa08d;
+    --text-faint: #6b7060;
+    --accent: #9db08c;
+    --warn: #cbb27e;
+
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 56px 22px 96px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: 40rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* ---------- Titraille ---------------------------------------------- */
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(30px, 6vw, 40px);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 0 0 10px;
+  }
+
+  .updated {
+    color: var(--text-faint);
+    font-size: 14px;
+    margin: 0 0 36px;
+  }
+
+  section { padding-top: 34px; margin-top: 34px; border-top: 1px solid var(--border); }
+  section:first-of-type { padding-top: 0; margin-top: 30px; border-top: none; }
+
+  h2 {
+    position: relative;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 14px;
+  }
+
+  /* Le numéro de clause se détache dans la marge dès qu'il y a la place :
+     c'est par lui qu'on se renvoie à un passage précis. */
+  .num {
+    color: var(--text-faint);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    margin-right: 10px;
+  }
+
+  @media (min-width: 860px) {
+    .num {
+      position: absolute;
+      left: -3.4rem;
+      top: 0.42em;
+      margin-right: 0;
+      text-align: right;
+      width: 2.2rem;
+    }
+  }
+
+  p { margin: 0 0 14px; }
+  p:last-child { margin-bottom: 0; }
+
+  ul { margin: 0 0 14px; padding-left: 20px; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--text-faint); }
+
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  strong { font-weight: 600; }
+
+  /* ---------- Chapô ---------------------------------------------------- */
+
+  .lede {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+
+  .lede p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 16.5px;
+  }
+
+  .lede p + p { margin-top: 12px; }
+
+  /* ---------- Mentions à compléter avant mise en ligne ------------------ */
+
+  .todo {
+    background: rgba(203, 178, 126, 0.15);
+    border-bottom: 1px dashed var(--warn);
+    color: var(--warn);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* ---------- Tableau --------------------------------------------------- */
+
+  .table-wrap { overflow-x: auto; margin: 4px 0 14px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 11px 14px 11px 0;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: top;
+  }
+
+  th {
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom-color: var(--border);
+  }
+
+  td:first-child { padding-right: 22px; }
+
+  footer {
+    margin-top: 44px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    color: var(--text-faint);
+    font-size: 14.5px;
+  }
+
+  /* ---------- Impression ------------------------------------------------ */
+
+  @media print {
+    body { background: #fff; color: #111; padding: 0; font-size: 11pt; }
+    .eyebrow { color: #555; }
+    .lede { background: none; border-color: #bbb; }
+    .lede p { color: #333; }
+    .todo { background: none; color: #111; border-bottom-color: #999; }
+    .num { color: #666; }
+    a { color: #111; }
+    section, footer, th, td { border-color: #ccc; }
+    section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<p class="eyebrow">Wakasis · Programme de fidélité</p>
+<h1>Politique de confidentialité</h1>
+<p class="updated">Dernière mise à jour : 1<sup>er</sup> septembre 2026</p>
+
+<div class="lede">
+  <p>Wakasis est l'application du programme de fidélité de la boutique. Elle enregistre
+  votre prénom, votre nom et vos points de fidélité — rien d'autre.</p>
+  <p>Elle ne demande ni adresse e-mail, ni numéro de téléphone, ni adresse postale.
+  Elle ne contient aucune publicité, aucun traqueur, aucun outil de mesure d'audience,
+  et ne partage vos données avec personne.</p>
+</div>
+
+<section>
+<h2><span class="num">1</span>Qui est responsable de vos données</h2>
+<p>Le responsable du traitement est :</p>
+<ul>
+  <li>Laurent Cobut, exploitant agricole</li>
+  <li>8 rue du Portail, 05700 Serres, France</li>
+  <li>SIRET 918 864 901 00015</li>
+  <li>Contact pour toute question relative à vos données :
+      <a href="mailto:l_oasis@yahoo.com">l_oasis@yahoo.com</a></li>
+</ul>
+<p>Aucun délégué à la protection des données n'a été désigné : la boutique n'y est pas
+tenue au regard de la nature et du volume des données traitées.</p>
+</section>
+
+<section>
+<h2><span class="num">2</span>Les données enregistrées</h2>
+<p>Votre compte de fidélité est créé en boutique, par un membre de l'équipe, à votre
+demande. Il contient :</p>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>Donnée</th><th>Origine</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Prénom et nom</td><td>Communiqués par vous en boutique</td></tr>
+    <tr><td>Code d'accès à 4 chiffres</td><td>Généré par l'application, il vous permet de consulter votre compte</td></tr>
+    <tr><td>Solde de points</td><td>Calculé par l'application</td></tr>
+    <tr><td>Date de création du compte</td><td>Enregistrée automatiquement</td></tr>
+    <tr><td>Historique des opérations : date, nature (crédit ou échange), nombre de points et libellé de l'achat correspondant</td><td>Enregistré par la boutique à chaque passage en caisse</td></tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2><span class="num">3</span>Ce que l'application ne collecte pas</h2>
+<p>L'application ne demande aucune autorisation Android autre que l'accès à Internet.
+Elle n'accède donc jamais à votre position, vos contacts, vos photos, votre appareil
+photo, votre microphone ni vos fichiers.</p>
+<p>Ne sont enregistrés, à aucun moment : adresse e-mail, numéro de téléphone, adresse
+postale, date de naissance, moyen de paiement, identifiant publicitaire. L'application
+ne dépose aucun cookie publicitaire ou de mesure d'audience et n'intègre aucun outil
+d'analyse de comportement.</p>
+</section>
+
+<section>
+<h2><span class="num">4</span>Pourquoi ces données sont enregistrées</h2>
+<p>Les données servent à une seule finalité : faire fonctionner le programme de fidélité,
+c'est-à-dire créditer vos points au fil de vos achats, vous permettre de consulter votre
+solde et votre historique depuis votre téléphone, et vous remettre les récompenses
+auxquelles vos points vous donnent droit.</p>
+<p>Elles ne sont utilisées ni pour de la prospection commerciale, ni pour du profilage,
+ni pour une prise de décision automatisée.</p>
+<p><strong>Base légale :</strong> l'exécution du contrat que constitue votre adhésion au
+programme de fidélité (article 6.1.b du RGPD). Cette adhésion est libre : vous pouvez
+faire vos achats en boutique sans compte Wakasis.</p>
+</section>
+
+<section>
+<h2><span class="num">5</span>Qui y a accès</h2>
+<p>Seuls les membres de l'équipe de la boutique, connectés à l'espace d'administration
+de l'application au moyen d'un compte protégé par mot de passe, ont accès à la liste des
+comptes et à leur historique.</p>
+<p>De votre côté, votre prénom, votre nom et votre code à 4 chiffres vous donnent accès
+à votre compte, et uniquement au vôtre : la base de données est configurée de sorte
+qu'aucun autre compte ne puisse être consulté depuis l'espace client.</p>
+<p>Vos données ne sont ni vendues, ni louées, ni transmises à des tiers, à l'exception de
+l'hébergeur mentionné ci-dessous, qui agit comme sous-traitant et n'en fait aucun usage
+propre.</p>
+</section>
+
+<section>
+<h2><span class="num">6</span>Où les données sont hébergées</h2>
+<p>Les données sont hébergées par Supabase, sur une infrastructure située à Paris,
+en France, donc au sein de l'Union européenne. Supabase intervient comme
+sous-traitant au sens du RGPD.</p>
+<p>Sur votre propre téléphone, l'application ne conserve rien d'autre que ce qui est
+nécessaire à son fonctionnement. Sur le téléphone de la boutique, la session de connexion
+et le code de déverrouillage de l'écran d'administration — conservé sous forme chiffrée,
+jamais en clair — sont stockés localement.</p>
+</section>
+
+<section>
+<h2><span class="num">7</span>Combien de temps elles sont conservées</h2>
+<p>Vos données sont conservées tant que votre compte de fidélité existe, puis pendant
+trois ans sans aucune opération sur votre compte, à l'issue desquels celui-ci est
+supprimé.</p>
+<p>La suppression d'un compte entraîne celle de tout son historique. Elle est définitive
+et ne peut pas être annulée.</p>
+</section>
+
+<section>
+<h2><span class="num">8</span>Vos droits</h2>
+<p>Conformément au règlement général sur la protection des données, vous disposez d'un
+droit d'accès, de rectification, d'effacement, de limitation du traitement, d'opposition
+et de portabilité de vos données.</p>
+<p>Pour les exercer, deux possibilités :</p>
+<ul>
+  <li>vous présenter en boutique et en faire la demande à l'équipe ;</li>
+  <li>écrire à <a href="mailto:l_oasis@yahoo.com">l_oasis@yahoo.com</a>.</li>
+</ul>
+<p>Votre demande de suppression est appliquée immédiatement, sans justification à fournir.
+Il vous sera simplement demandé de confirmer votre identité, afin que personne d'autre
+ne puisse faire supprimer votre compte à votre place.</p>
+<p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une
+réclamation à la Commission nationale de l'informatique et des libertés (CNIL),
+3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 —
+<a href="https://www.cnil.fr">www.cnil.fr</a>.</p>
+</section>
+
+<section>
+<h2><span class="num">9</span>Sécurité</h2>
+<p>Les échanges entre l'application et la base de données sont chiffrés. L'accès à
+l'ensemble des comptes est réservé à la session administrateur de la boutique,
+protégée par un mot de passe.</p>
+<p>Aucun système n'étant infaillible, nous attirons votre attention sur un point :
+votre code à 4 chiffres n'est pas un mot de passe. Il protège l'accès à la seule
+information que contient votre compte — votre solde de points. Ne l'utilisez pas
+ailleurs.</p>
+</section>
+
+<section>
+<h2><span class="num">10</span>Mineurs</h2>
+<p>Le programme de fidélité n'est pas destiné aux personnes mineures et aucun compte
+n'est ouvert à leur nom. Si un compte devait l'avoir été par erreur, il sera supprimé
+sur simple signalement à l'adresse de contact ci-dessus.</p>
+</section>
+
+<section>
+<h2><span class="num">11</span>Modifications</h2>
+<p>Cette politique peut être modifiée, notamment si le fonctionnement de l'application
+évolue. La date de dernière mise à jour figure en tête de page. La version en vigueur
+est toujours celle publiée à cette adresse.</p>
+</section>
+
+<footer>
+  Application Wakasis — programme de fidélité.
+  Pour toute question : <a href="mailto:l_oasis@yahoo.com">l_oasis@yahoo.com</a>.
+</footer>
+
+</main>
+</body>
+</html>
