@@ -141,16 +141,6 @@
 
   .lede p + p { margin-top: 12px; }
 
-  /* ---------- Mentions à compléter avant mise en ligne ------------------ */
-
-  .todo {
-    background: rgba(203, 178, 126, 0.15);
-    border-bottom: 1px dashed var(--warn);
-    color: var(--warn);
-    padding: 1px 5px;
-    border-radius: 3px;
-  }
-
   /* ---------- Tableau --------------------------------------------------- */
 
   .table-wrap { overflow-x: auto; margin: 4px 0 14px; }
@@ -195,7 +185,6 @@
     .eyebrow { color: #555; }
     .lede { background: none; border-color: #bbb; }
     .lede p { color: #333; }
-    .todo { background: none; color: #111; border-bottom-color: #999; }
     .num { color: #666; }
     a { color: #111; }
     section, footer, th, td { border-color: #ccc; }
@@ -208,12 +197,13 @@
 
 <p class="eyebrow">Wakasis · Programme de fidélité</p>
 <h1>Politique de confidentialité</h1>
-<p class="updated">Dernière mise à jour : 1<sup>er</sup> septembre 2026</p>
+<p class="updated">Dernière mise à jour : 2 septembre 2026</p>
 
 <div class="lede">
   <p>Wakasis est l'application du programme de fidélité de la boutique. Elle enregistre
-  votre prénom, votre nom et vos points de fidélité — rien d'autre.</p>
-  <p>Elle ne demande ni adresse e-mail, ni numéro de téléphone, ni adresse postale.
+  un pseudo que vous choisissez et vos points de fidélité — rien d'autre.</p>
+  <p>Elle ne demande ni votre nom, ni adresse e-mail, ni numéro de téléphone, ni adresse
+  postale : la base ne contient aucun nom réel, seulement le pseudo que vous avez choisi.
   Elle ne contient aucune publicité, aucun traqueur, aucun outil de mesure d'audience,
   et ne partage vos données avec personne.</p>
 </div>
@@ -234,16 +224,16 @@ tenue au regard de la nature et du volume des données traitées.</p>
 
 <section>
 <h2><span class="num">2</span>Les données enregistrées</h2>
-<p>Votre compte de fidélité est créé en boutique, par un membre de l'équipe, à votre
-demande. Il contient :</p>
+<p>Votre compte de fidélité est créé soit par vous, depuis l'application, soit en
+boutique par un membre de l'équipe, à votre demande. Il contient :</p>
 <div class="table-wrap">
 <table>
   <thead>
     <tr><th>Donnée</th><th>Origine</th></tr>
   </thead>
   <tbody>
-    <tr><td>Prénom et nom</td><td>Communiqués par vous en boutique</td></tr>
-    <tr><td>Code d'accès à 4 chiffres</td><td>Généré par l'application, il vous permet de consulter votre compte</td></tr>
+    <tr><td>Pseudo</td><td>Choisi par vous. Vous seul savez à qui il correspond, et nous vous conseillons de ne pas y mettre votre nom</td></tr>
+    <tr><td>Code d'accès à 4 chiffres</td><td>Choisi par vous ; il vous permet de consulter votre compte. Créé en boutique, il vous est communiqué et reste modifiable sur demande</td></tr>
     <tr><td>Solde de points</td><td>Calculé par l'application</td></tr>
     <tr><td>Date de création du compte</td><td>Enregistrée automatiquement</td></tr>
     <tr><td>Historique des opérations : date, nature (crédit ou échange), nombre de points et libellé de l'achat correspondant</td><td>Enregistré par la boutique à chaque passage en caisse</td></tr>
@@ -257,7 +247,7 @@ demande. Il contient :</p>
 <p>L'application ne demande aucune autorisation Android autre que l'accès à Internet.
 Elle n'accède donc jamais à votre position, vos contacts, vos photos, votre appareil
 photo, votre microphone ni vos fichiers.</p>
-<p>Ne sont enregistrés, à aucun moment : adresse e-mail, numéro de téléphone, adresse
+<p>Ne sont enregistrés, à aucun moment : nom, prénom, adresse e-mail, numéro de téléphone, adresse
 postale, date de naissance, moyen de paiement, identifiant publicitaire. L'application
 ne dépose aucun cookie publicitaire ou de mesure d'audience et n'intègre aucun outil
 d'analyse de comportement.</p>
@@ -281,7 +271,7 @@ faire vos achats en boutique sans compte Wakasis.</p>
 <p>Seuls les membres de l'équipe de la boutique, connectés à l'espace d'administration
 de l'application au moyen d'un compte protégé par mot de passe, ont accès à la liste des
 comptes et à leur historique.</p>
-<p>De votre côté, votre prénom, votre nom et votre code à 4 chiffres vous donnent accès
+<p>De votre côté, votre pseudo et votre code à 4 chiffres vous donnent accès
 à votre compte, et uniquement au vôtre : la base de données est configurée de sorte
 qu'aucun autre compte ne puisse être consulté depuis l'espace client.</p>
 <p>Vos données ne sont ni vendues, ni louées, ni transmises à des tiers, à l'exception de
@@ -320,7 +310,7 @@ et de portabilité de vos données.</p>
   <li>écrire à <a href="mailto:l_oasis@yahoo.com">l_oasis@yahoo.com</a>.</li>
 </ul>
 <p>Votre demande de suppression est appliquée immédiatement, sans justification à fournir.
-Il vous sera simplement demandé de confirmer votre identité, afin que personne d'autre
+Il vous sera simplement demandé votre pseudo et votre code, afin que personne d'autre
 ne puisse faire supprimer votre compte à votre place.</p>
 <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une
 réclamation à la Commission nationale de l'informatique et des libertés (CNIL),
